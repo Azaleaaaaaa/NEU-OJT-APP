@@ -13,13 +13,14 @@
             justify-content: center;
             align-items: center;
             margin-top: 20px;
-            flex-direction: column; /* Align items vertically */
+            flex-direction: column;
         }
-        /* Add margin for the new logout button */
-        /* Margin for logout buttons */
+
+        /* Add margin for the logout buttons */
         .logout-btn {
             margin-top: 10px;
         }
+
         /* Back button styling */
         .back-btn {
             margin-top: 20px;
@@ -54,16 +55,12 @@
             <img src="./logo/logo.png" alt="NEU Logo" class="logo">
             <h2>Choices</h2>
             <div class="button-group">
-                <button class="btn primary" onclick="navigateTo('upload-requirements')">Upload Requirements</button>
-                <button class="btn primary" onclick="navigateTo('student-info')">Enter Student Info</button>
-                <button id="uploadRequirementsButton" class="btn primary" onclick="navigateTo('upload-requirements')">Upload Requirements</button>
-                <button id="enterStudentInfoButton" class="btn primary" onclick="navigateTo('student-info')">Enter Student Info</button>
+                <button id="uploadRequirementsButton" class="btn primary">Upload Requirements</button>
+                <button id="enterStudentInfoButton" class="btn primary">Enter Student Info</button>
             </div>
             <div class="centered">
-                <button class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
-                <button class="btn secondary logout-btn" onclick="logOut()">Log Out</button>
-                <button id="generateEndorsementButton" class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
-                <button class="btn secondary logout-btn choices-logout" onclick="logout()">Log Out</button>
+                <button id="generateEndorsementButton" class="btn secondary">Generate Endorsement Letter</button>
+                <button class="btn secondary logout-btn" id="choicesLogoutButton">Log Out</button>
             </div>
         </div>
     </section>
@@ -73,7 +70,7 @@
         <div class="container">
             <img src="./logo/logo.png" alt="NEU Logo" class="logo">
             <h2>Upload Requirements</h2>
-            <form class="form" onsubmit="return false;">
+            <form class="form">
                 <div class="upload-field">
                     <label>Parent's Consent Form</label>
                     <input type="file">
@@ -90,10 +87,9 @@
                     <label>Resume</label>
                     <input type="file">
                 </div>
-                <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
+                <button type="button" class="btn primary" id="submitRequirementsButton">Submit</button>
             </form>
-            <button class="btn secondary back-btn" onclick="navigateTo('choices-page')">Back</button>
-            <button class="btn secondary back-btn upload-back" onclick="navigateTo('choices-page')">Back</button>
+            <button class="btn secondary back-btn" id="uploadBackButton">Back</button>
         </div>
     </section>
 
@@ -102,7 +98,7 @@
         <div class="container">
             <img src="./logo/logo.png" alt="NEU Logo" class="logo">
             <h2>Enter Student Info</h2>
-            <form class="form" onsubmit="return false;">
+            <form class="form">
                 <div class="input-group">
                     <label for="studentName">Name</label>
                     <input type="text" id="studentName" placeholder="Enter your full name">
@@ -115,10 +111,9 @@
                     <label for="course">Course</label>
                     <input type="text" id="course" placeholder="Enter your course">
                 </div>
-                <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
+                <button type="button" class="btn primary" id="submitStudentInfoButton">Submit</button>
             </form>
-            <button class="btn secondary back-btn" onclick="navigateTo('choices-page')">Back</button>
-            <button class="btn secondary back-btn student-info-back" onclick="navigateTo('choices-page')">Back</button>
+            <button class="btn secondary back-btn" id="studentInfoBackButton">Back</button>
         </div>
     </section>
 
@@ -128,42 +123,8 @@
             <img src="./logo/logo.png" alt="NEU Logo" class="logo">
             <h2>Generate Endorsement Letter</h2>
             <p>Here, you can generate the endorsement letter.</p>
-            <button class="btn primary" onclick="navigateTo('main-page')">Generate Letter</button>
+            <button class="btn primary" id="generateLetterButton">Generate Letter</button>
         </div>
     </section>
-
-    <!-- Sign-In Options Page -->
-    <section id="sign-in-options" class="page hidden">
-        <div class="container">
-            <img src="./logo/logo.png" alt="NEU Logo" class="logo">
-            <h2>Sign In</h2>
-            <form onsubmit="return false;">
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
-                </div>
-                <button type="button" class="btn primary" onclick="navigateTo('main-page')">Login</button>
-                <button type="button" class="btn secondary" onclick="navigateTo('login-page')">Cancel</button>
-            </form>
-        </div>
-    </section>
-
-    <script>
-        function navigateTo(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.add('hidden'));
-            document.getElementById(pageId).classList.remove('hidden');
-        }
-
-        function logOut() {
-        function logout() {
-            alert('Logging out...');
-            navigateTo('login-page');
-        }
-    </script>
 </body>
 </html>
