@@ -85,3 +85,19 @@ document.addEventListener('DOMContentLoaded', () => {
     navigateTo('login-page');
     console.log("DOMContentLoaded: Navigated to login-page");
 });
+
+// Handling navigation from Choices Page
+document.getElementById("uploadRequirementsButton")?.addEventListener("click", () => {
+    console.log("Navigating to upload-requirements page");
+    navigateTo('upload-requirements');
+});
+
+document.getElementById("enterStudentInfoButton")?.addEventListener("click", () => {
+    console.log("Navigating to student-info page");
+    navigateTo('student-info');
+});
+
+document.getElementById("generateEndorsementButton")?.addEventListener("click", () => {
+    console.log("Navigating to endorsement-letter page");
+    navigateTo('endorsement-letter');
+});
