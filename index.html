@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="styles.css">
     <script src="register.js" defer type="module"></script>
     <style>
-        /* Center elements in Main Page */
-        .center-buttons {
+        /* Center the Generate Endorsement Letter button */
+        #choices-page .centered {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
+            flex-direction: column; /* Align items vertically */
         }
-        .center-buttons .btn {
-            margin: 10px 0; /* Add space between buttons */
+        /* Add margin for the new logout button */
+        /* Margin for logout buttons */
+        .logout-btn {
+            margin-top: 10px;
+        }
+        /* Back button styling */
+        .back-btn {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -37,12 +43,8 @@
             <h2 id="userName">Welcome</h2>
             <p id="userEmail"></p>
             <img id="userProfilePicture" class="profile-pic" alt="User Profile Picture" />
-
-            <!-- Centered Buttons -->
-            <div class="center-buttons">
-                <button id="nextPageButton" class="btn primary">Next Page</button>
-                <button id="logOutButton" class="btn secondary" onclick="logout()">Log Out</button>
-            </div>
+            <button id="nextPageButton" class="btn primary">Next Page</button>
+            <button id="logOutButton" class="btn secondary">Log Out</button>
         </div>
     </section>
 
@@ -50,12 +52,16 @@
     <section id="choices-page" class="page hidden">
         <div class="container">
             <img src="./logo/logo.png" alt="NEU Logo" class="logo">
-            <h2>Options</h2>
+            <h2>Choices</h2>
             <div class="button-group">
+                <button class="btn primary" onclick="navigateTo('upload-requirements')">Upload Requirements</button>
+                <button class="btn primary" onclick="navigateTo('student-info')">Enter Student Info</button>
                 <button id="uploadRequirementsButton" class="btn primary" onclick="navigateTo('upload-requirements')">Upload Requirements</button>
                 <button id="enterStudentInfoButton" class="btn primary" onclick="navigateTo('student-info')">Enter Student Info</button>
             </div>
             <div class="centered">
+                <button class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
+                <button class="btn secondary logout-btn" onclick="logOut()">Log Out</button>
                 <button id="generateEndorsementButton" class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
                 <button class="btn secondary logout-btn choices-logout" onclick="logout()">Log Out</button>
             </div>
@@ -86,6 +92,7 @@
                 </div>
                 <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
             </form>
+            <button class="btn secondary back-btn" onclick="navigateTo('choices-page')">Back</button>
             <button class="btn secondary back-btn upload-back" onclick="navigateTo('choices-page')">Back</button>
         </div>
     </section>
@@ -110,6 +117,7 @@
                 </div>
                 <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
             </form>
+            <button class="btn secondary back-btn" onclick="navigateTo('choices-page')">Back</button>
             <button class="btn secondary back-btn student-info-back" onclick="navigateTo('choices-page')">Back</button>
         </div>
     </section>
@@ -124,15 +132,34 @@
         </div>
     </section>
 
+    <!-- Sign-In Options Page -->
+    <section id="sign-in-options" class="page hidden">
+        <div class="container">
+            <img src="./logo/logo.png" alt="NEU Logo" class="logo">
+            <h2>Sign In</h2>
+            <form onsubmit="return false;">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <button type="button" class="btn primary" onclick="navigateTo('main-page')">Login</button>
+                <button type="button" class="btn secondary" onclick="navigateTo('login-page')">Cancel</button>
+            </form>
+        </div>
+    </section>
+
     <script>
-        // Navigation function
         function navigateTo(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.add('hidden'));
             document.getElementById(pageId).classList.remove('hidden');
         }
 
-        // Logout function
+        function logOut() {
         function logout() {
             alert('Logging out...');
             navigateTo('login-page');
