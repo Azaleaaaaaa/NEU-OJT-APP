@@ -13,8 +13,9 @@
             justify-content: center;
             align-items: center;
             margin-top: 20px;
+            flex-direction: column; /* Align items vertically */
         }
-        /* Add margin for the new logout button */
+        /* Margin for logout buttons */
         .logout-btn {
             margin-top: 10px;
         }
@@ -52,12 +53,12 @@
             <img src="./logo/logo.png" alt="NEU Logo" class="logo">
             <h2>Choices</h2>
             <div class="button-group">
-                <button class="btn primary" onclick="navigateTo('upload-requirements')">Upload Requirements</button>
-                <button class="btn primary" onclick="navigateTo('student-info')">Enter Student Info</button>
+                <button id="uploadRequirementsButton" class="btn primary" onclick="navigateTo('upload-requirements')">Upload Requirements</button>
+                <button id="enterStudentInfoButton" class="btn primary" onclick="navigateTo('student-info')">Enter Student Info</button>
             </div>
             <div class="centered">
-                <button class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
-                <button class="btn secondary logout-btn" onclick="logOut()">Log Out</button>
+                <button id="generateEndorsementButton" class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
+                <button class="btn secondary logout-btn choices-logout" onclick="logout()">Log Out</button>
             </div>
         </div>
     </section>
@@ -86,7 +87,7 @@
                 </div>
                 <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
             </form>
-            <button class="btn secondary back-btn" onclick="navigateTo('choices-page')">Back</button>
+            <button class="btn secondary back-btn upload-back" onclick="navigateTo('choices-page')">Back</button>
         </div>
     </section>
 
@@ -110,7 +111,7 @@
                 </div>
                 <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
             </form>
-            <button class="btn secondary back-btn" onclick="navigateTo('choices-page')">Back</button>
+            <button class="btn secondary back-btn student-info-back" onclick="navigateTo('choices-page')">Back</button>
         </div>
     </section>
 
@@ -151,7 +152,7 @@
             document.getElementById(pageId).classList.remove('hidden');
         }
 
-        function logOut() {
+        function logout() {
             alert('Logging out...');
             navigateTo('login-page');
         }
