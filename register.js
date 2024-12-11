@@ -92,3 +92,16 @@ onAuthStateChanged(auth, (user) => {
 document.getElementById("nextPageButton").addEventListener("click", () => {
     navigateTo('choices-page');  // Navigates to the Choices Page
 });
+
+// Event listeners for choices page buttons
+document.querySelector('.btn.primary:nth-child(1)').addEventListener("click", () => {
+    navigateTo('upload-requirements'); // Navigate to Upload Requirements Page
+});
+
+document.querySelector('.btn.primary:nth-child(2)').addEventListener("click", () => {
+    navigateTo('student-info'); // Navigate to Enter Student Info Page
+});
+
+document.querySelector('.btn.secondary').addEventListener("click", () => {
+    navigateTo('endorsement-letter'); // Navigate to Generate Endorsement Letter Page
+});
