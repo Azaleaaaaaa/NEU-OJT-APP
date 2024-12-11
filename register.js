@@ -88,7 +88,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// Ensure the Next button navigates to the upload requirements page
+// Ensure the Next button navigates to the Choices page
 document.getElementById("nextPageButton").addEventListener("click", () => {
-    navigateTo('upload-requirements');  // Navigates to the upload-requirements page
+    navigateTo('choices-page');  // Navigates to the Choices Page
 });
