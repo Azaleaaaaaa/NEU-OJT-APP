@@ -16,12 +16,17 @@
             flex-direction: column;
         }
 
-        /* Add margin for the logout buttons */
-        .logout-btn {
-            margin-top: 10px;
+        /* Center the Next and Log Out buttons */
+        #main-page .button-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        /* Back button styling */
+        /* Add margin for the back button */
         .back-btn {
             margin-top: 20px;
         }
@@ -44,8 +49,10 @@
             <h2 id="userName">Welcome</h2>
             <p id="userEmail"></p>
             <img id="userProfilePicture" class="profile-pic" alt="User Profile Picture" />
-            <button id="nextPageButton" class="btn primary">Next Page</button>
-            <button id="logOutButton" class="btn secondary">Log Out</button>
+            <div class="button-group">
+                <button id="nextPageButton" class="btn primary">Next Page</button>
+                <button id="logOutButton" class="btn secondary">Log Out</button>
+            </div>
         </div>
     </section>
 
@@ -124,6 +131,7 @@
             <h2>Generate Endorsement Letter</h2>
             <p>Here, you can generate the endorsement letter.</p>
             <button class="btn primary" id="generateLetterButton">Generate Letter</button>
+            <button class="btn secondary back-btn" id="endorsementBackButton">Back</button>
         </div>
     </section>
 </body>
