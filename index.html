@@ -34,9 +34,37 @@
         <div class="container">
             <img src="./logo/logo.png" alt="NEU Logo" class="logo">
             <div class="button-group">
+                <button class="btn primary" onclick="navigateTo('upload-requirements')">Upload Requirements</button>
                 <button class="btn primary" onclick="navigateTo('student-info')">Enter Student Info</button>
                 <button class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
             </div>
+        </div>
+    </section>
+
+    <!-- Upload Requirements Page -->
+    <section id="upload-requirements" class="page hidden">
+        <div class="container">
+            <img src="./logo/logo.png" alt="NEU Logo" class="logo">
+            <h2>Upload Requirements</h2>
+            <form class="form" onsubmit="return false;">
+                <div class="upload-field">
+                    <label>Parent's Consent Form</label>
+                    <input type="file">
+                </div>
+                <div class="upload-field">
+                    <label>Medical Exam</label>
+                    <input type="file">
+                </div>
+                <div class="upload-field">
+                    <label>Psychological Exam</label>
+                    <input type="file">
+                </div>
+                <div class="upload-field">
+                    <label>Resume</label>
+                    <input type="file">
+                </div>
+                <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
+            </form>
         </div>
     </section>
 
