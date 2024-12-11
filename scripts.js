@@ -101,3 +101,21 @@ document.getElementById("generateEndorsementButton")?.addEventListener("click", 
     console.log("Navigating to endorsement-letter page");
     navigateTo('endorsement-letter');
 });
+
+// Back Button in Upload Requirements Page
+document.querySelector('.back-btn.upload-back')?.addEventListener("click", () => {
+    console.log("Navigating back to choices-page");
+    navigateTo('choices-page');
+});
+
+// Back Button in Student Info Page
+document.querySelector('.back-btn.student-info-back')?.addEventListener("click", () => {
+    console.log("Navigating back to choices-page");
+    navigateTo('choices-page');
+});
+
+// Logout Button in Choices Page (under Generate Endorsement Letter)
+document.querySelector('.logout-btn.choices-logout')?.addEventListener("click", () => {
+    console.log("Logging out from choices-page");
+    logout();
+});
