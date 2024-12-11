@@ -69,15 +69,16 @@ document.getElementById("googleSignInButton").addEventListener("click", async ()
 });
 
 // Log out function
-document.getElementById("logOutButton").addEventListener("click", async () => {
-    try {
-        await signOut(auth);
-        navigateTo("login-page");  // Redirect to the login page after log-out
-        alert("You have successfully logged out.");
-    } catch (error) {
-        console.error("Error during log-out:", error);
-    }
-});
+function logOut() {
+    signOut(auth)
+        .then(() => {
+            alert("You have successfully logged out.");
+            navigateTo("login-page");
+        })
+        .catch((error) => {
+            console.error("Error during log-out:", error);
+        });
+}
 
 // Monitor authentication state
 onAuthStateChanged(auth, (user) => {
@@ -102,6 +103,5 @@ document.querySelector('.btn.primary:nth-child(2)').addEventListener("click", ()
     navigateTo('student-info'); // Navigate to Enter Student Info Page
 });
 
-document.querySelector('.btn.secondary').addEventListener("click", () => {
-    navigateTo('endorsement-letter'); // Navigate to Generate Endorsement Letter Page
-});
+// Add logout functionality to the new logout button in the Choices page
+document.querySelector('.logout-btn').addEventListener("click", logOut);
