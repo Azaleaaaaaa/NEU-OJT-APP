@@ -14,6 +14,14 @@
             align-items: center;
             margin-top: 20px;
         }
+        /* Add margin for the new logout button */
+        .logout-btn {
+            margin-top: 10px;
+        }
+        /* Back button styling */
+        .back-btn {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -49,6 +57,7 @@
             </div>
             <div class="centered">
                 <button class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
+                <button class="btn secondary logout-btn" onclick="logOut()">Log Out</button>
             </div>
         </div>
     </section>
@@ -77,6 +86,7 @@
                 </div>
                 <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
             </form>
+            <button class="btn secondary back-btn" onclick="navigateTo('choices-page')">Back</button>
         </div>
     </section>
 
@@ -100,6 +110,7 @@
                 </div>
                 <button type="button" class="btn primary" onclick="navigateTo('main-page')">Submit</button>
             </form>
+            <button class="btn secondary back-btn" onclick="navigateTo('choices-page')">Back</button>
         </div>
     </section>
 
@@ -133,6 +144,17 @@
         </div>
     </section>
 
-    <script src="scripts.js" type="module"></script>
+    <script>
+        function navigateTo(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        function logOut() {
+            alert('Logging out...');
+            navigateTo('login-page');
+        }
+    </script>
 </body>
 </html>
