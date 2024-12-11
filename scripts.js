@@ -17,19 +17,7 @@ function navigateTo(pageId) {
     }
 }
 
-// Log out function
-function logout() {
-    auth.signOut()
-        .then(() => {
-            navigateTo('login-page');
-            console.log("User signed out successfully");
-        })
-        .catch((error) => {
-            console.error("Error during sign-out:", error);
-        });
-}
-
-// Ensure the Next Page button navigates to the Choices Page
+// Ensure that the Next Page button on the Main Page properly navigates to the Choices Page
 const nextPageButton = document.getElementById("nextPageButton");
 if (nextPageButton) {
     nextPageButton.addEventListener("click", () => {
@@ -40,15 +28,14 @@ if (nextPageButton) {
     console.error("Next Page button not found!");
 }
 
-// Log out button functionality on the Main Page
-const mainPageLogoutButton = document.getElementById("logOutButton");
-if (mainPageLogoutButton) {
-    mainPageLogoutButton.addEventListener("click", () => {
-        console.log("Logging out from main-page");
-        logout();
+// Log out function
+function logout() {
+    auth.signOut().then(() => {
+        navigateTo('login-page');
+        console.log("User signed out successfully");
+    }).catch((error) => {
+        console.error("Error during sign-out:", error);
     });
-} else {
-    console.error("Logout button not found on main page!");
 }
 
 // Update user profile in UI
@@ -114,20 +101,17 @@ document.getElementById("generateEndorsementButton")?.addEventListener("click", 
     console.log("Navigating to endorsement-letter page");
     navigateTo('endorsement-letter');
 });
-
 // Back Button in Upload Requirements Page
 document.querySelector('.back-btn.upload-back')?.addEventListener("click", () => {
     console.log("Navigating back to choices-page");
     navigateTo('choices-page');
 });
-
 // Back Button in Student Info Page
 document.querySelector('.back-btn.student-info-back')?.addEventListener("click", () => {
     console.log("Navigating back to choices-page");
     navigateTo('choices-page');
 });
-
-// Logout Button in Choices Page
+// Logout Button in Choices Page (under Generate Endorsement Letter)
 document.querySelector('.logout-btn.choices-logout')?.addEventListener("click", () => {
     console.log("Logging out from choices-page");
     logout();
