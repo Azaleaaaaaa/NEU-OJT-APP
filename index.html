@@ -7,21 +7,16 @@
     <link rel="stylesheet" href="styles.css">
     <script src="register.js" defer type="module"></script>
     <style>
-        /* Center the Generate Endorsement Letter button */
-        #choices-page .centered {
+        /* Center elements in Main Page */
+        .center-buttons {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
-            flex-direction: column; /* Align items vertically */
         }
-        /* Margin for logout buttons */
-        .logout-btn {
-            margin-top: 10px;
-        }
-        /* Back button styling */
-        .back-btn {
-            margin-top: 20px;
+        .center-buttons .btn {
+            margin: 10px 0; /* Add space between buttons */
         }
     </style>
 </head>
@@ -42,8 +37,12 @@
             <h2 id="userName">Welcome</h2>
             <p id="userEmail"></p>
             <img id="userProfilePicture" class="profile-pic" alt="User Profile Picture" />
-            <button id="nextPageButton" class="btn primary">Next Page</button>
-            <button id="logOutButton" class="btn secondary">Log Out</button>
+
+            <!-- Centered Buttons -->
+            <div class="center-buttons">
+                <button id="nextPageButton" class="btn primary">Next Page</button>
+                <button id="logOutButton" class="btn secondary" onclick="logout()">Log Out</button>
+            </div>
         </div>
     </section>
 
@@ -125,33 +124,15 @@
         </div>
     </section>
 
-    <!-- Sign-In Options Page -->
-    <section id="sign-in-options" class="page hidden">
-        <div class="container">
-            <img src="./logo/logo.png" alt="NEU Logo" class="logo">
-            <h2>Sign In</h2>
-            <form onsubmit="return false;">
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
-                </div>
-                <button type="button" class="btn primary" onclick="navigateTo('main-page')">Login</button>
-                <button type="button" class="btn secondary" onclick="navigateTo('login-page')">Cancel</button>
-            </form>
-        </div>
-    </section>
-
     <script>
+        // Navigation function
         function navigateTo(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.add('hidden'));
             document.getElementById(pageId).classList.remove('hidden');
         }
 
+        // Logout function
         function logout() {
             alert('Logging out...');
             navigateTo('login-page');
