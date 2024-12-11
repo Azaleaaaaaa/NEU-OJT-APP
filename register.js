@@ -92,3 +92,4 @@ document.getElementById("generateEndorsementButton").addEventListener("click", (
 // Back buttons
 document.getElementById("uploadBackButton").addEventListener("click", () => navigateTo("choices-page"));
 document.getElementById("studentInfoBackButton").addEventListener("click", () => navigateTo("choices-page"));
+document.getElementById("endorsementBackButton").addEventListener("click", () => navigateTo("choices-page"));
