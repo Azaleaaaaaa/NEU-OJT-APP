@@ -6,6 +6,15 @@
     <title>NEU OJT APP</title>
     <link rel="stylesheet" href="styles.css">
     <script src="register.js" defer type="module"></script>
+    <style>
+        /* Center the Generate Endorsement Letter button */
+        #choices-page .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <!-- Login Page -->
@@ -37,6 +46,8 @@
             <div class="button-group">
                 <button class="btn primary" onclick="navigateTo('upload-requirements')">Upload Requirements</button>
                 <button class="btn primary" onclick="navigateTo('student-info')">Enter Student Info</button>
+            </div>
+            <div class="centered">
                 <button class="btn secondary" onclick="navigateTo('endorsement-letter')">Generate Endorsement Letter</button>
             </div>
         </div>
